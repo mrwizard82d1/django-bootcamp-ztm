@@ -1,0 +1,7 @@
+[[Your First Day]]
+[[URLs and Views Overview]]
+[[Django Project Setup]]
+[[Adding URLs and Views]]
+[[Dynamic URLs]]
+[[Adding Dynamic URL Routing]]
+[[Let's Have Some Fun]]
