@@ -7,5 +7,5 @@ def index(request):
 
 
 def about(request):
-    """Home view."""
-    return HttpResponse("About app `config`.")
+    """About view."""
+    return HttpResponse("About Me")
