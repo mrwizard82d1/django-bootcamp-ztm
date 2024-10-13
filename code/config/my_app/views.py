@@ -4,3 +4,8 @@ from django.shortcuts import render, HttpResponse
 def index(request):
     """Home view."""
     return HttpResponse("Hello, Django my-app world!")
+
+
+def about(request):
+    """Home view."""
+    return HttpResponse("About app `config`.")
