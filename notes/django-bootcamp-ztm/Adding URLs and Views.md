@@ -22,3 +22,8 @@ Add views
 However, Django does not (yet) know when to call our newly created function
 - Edit `config/urls.py`
 	- Add mapping from home page (`''`) to `index` function
+
+Advice: Always append trailing slash ('/') to URLs
+- This convention allows a user to supply the trailing slash or not. For example
+	- `http://localhost:8000/about`
+	- `http://localhost:8000/about/`
