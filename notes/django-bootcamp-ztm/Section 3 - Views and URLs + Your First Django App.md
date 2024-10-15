@@ -4,4 +4,4 @@
 [[Adding URLs and Views]]
 [[Dynamic URLs]]
 [[Adding Dynamic URL Routing]]
-[[Let's Have Some Fun]]
+[[Exercise - Dynamic URLs - Add 2 Numbers Solution]]

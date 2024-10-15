@@ -1,7 +1,7 @@
 [[Introduction]]
 [[Section 1 - Introduction to Django]]
 [[Section 2 - Installation and Setup]]
-[[Section 3 - Views andf URLs + You First Django App]]
+[[Section 3 - Views and URLs + Your First Django App]]
 [[Section 4A - Django Templates + Favorite Movies App Project]]
 [[Section 4B - Deployment of our Favorite Movies App Project]]
 [[Section 5 - Django Models + Jobs Board Project]]
