@@ -14,3 +14,8 @@ def about(request):
 def hello(request, first_name):
     """Return a friendly greeting of `first_name`."""
     return HttpResponse(f"Hello, {first_name}")
+
+
+def my_sum(request, num1, num2):
+    """Return a page with the sum of `num1` and `num2`."""
+    return HttpResponse(f"{num1 + num2}")
