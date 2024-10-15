@@ -9,3 +9,8 @@ def index(request):
 def about(request):
     """About view."""
     return HttpResponse("About Me")
+
+
+def hello(request, first_name):
+    """Return a friendly greeting of `first_name`."""
+    return HttpResponse(f"Hello, {first_name}")
