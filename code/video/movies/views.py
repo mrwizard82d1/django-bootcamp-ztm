@@ -10,7 +10,7 @@ def index(request):
 
 
 def about(request):
-    """A describing our movies application."""
+    """A function rendering a page describing our movies application."""
     return render(request, 'movies/about.html', {})
 
 # To identify a template, use the path
