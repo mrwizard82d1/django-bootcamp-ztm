@@ -58,6 +58,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [BASE_DIR / 'templates']
         ,
+        # A value of `True` means that Django will look inside
+        # each app for the required templates.
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
