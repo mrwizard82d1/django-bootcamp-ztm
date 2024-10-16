@@ -1,6 +1,6 @@
 [[How Django Templates Work]]
 [[Movies App Project Setup]]
-[[My Fave Moves Template]]
+[[My Fav Moves Template]]
 [[Create About Page Solution]]
 [[Django Template Variables, Tags, and Filters Overview]]
 [[Accessing Variables in Django Templates]]
