@@ -1,22 +1,17 @@
-{% extands 'movies/_base.html' %}
+{% extends 'movies/_base.html' %}
 
 <!DOCTYPE html>
-
 <html lang="en">
-    <body>
-        <div>
-            <a href="{% url 'home' %}">Fav Movies</a>
-            <a href="{% url 'about' %}">About</a>
-        </div>
+    {% block content %}
         <h1>My Fav Movies!</h1>
         {% if movies %}
             <ul>
-                {%  for movie in movies %} 
+                {%  for movie in movies %}
                     <li>{{  movie|title  }}</li>
                 {% endfor %}
             </ul>
         {%  else %}
             <p>No favorites movies...</p>
         {% endif %}
-    </body>
+    {% endblock content %}
 </html>
