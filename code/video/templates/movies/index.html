@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
-<h1>My Fav Movies!</h1>
-{% if movies %}
-    <ul>
-        {%  for movie in movies %} 
-            <li>{{  movie|title  }}</li>
-        {% endfor %}
-    </ul>
-{%  else %}
-    <p>No favorites movies...</p>
-{% endif %}
-</body>
+    <body>
+        <div>
+            <a href="">Fav Movies</a>
+            <a href="/about">About</a>
+        </div>
+        <h1>My Fav Movies!</h1>
+        {% if movies %}
+            <ul>
+                {%  for movie in movies %} 
+                    <li>{{  movie|title  }}</li>
+                {% endfor %}
+            </ul>
+        {%  else %}
+            <p>No favorites movies...</p>
+        {% endif %}
+    </body>
 </html>
