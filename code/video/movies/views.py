@@ -6,7 +6,7 @@ def index(request):
     # The third argument to `render` is called the "context."
     # The context is modeled by a dictionary containing the replaceable
     # parameters for data to be substituted into our template.
-    return render(request, 'movies/index.html', {})
+    return render(request, 'movies/index.html', {'movie': 'Gladiator'})
 
 
 def about(request):
