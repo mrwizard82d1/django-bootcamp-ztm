@@ -2,6 +2,14 @@
 <html lang="en">
 <body>
 <h1>My Fav Movies!</h1>
-{{ movie }}
+{% if movies %}
+    <ul>
+        {%  for movie in movies %} 
+            <li>{{  movie|title  }}</li>
+        {% endfor %}
+    </ul>
+{%  else %}
+    <p>No favorites movies...</p>
+{% endif %}
 </body>
 </html>

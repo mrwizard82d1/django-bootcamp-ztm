@@ -3,10 +3,15 @@ from django.shortcuts import render
 # Create your views here.
 def index(request):
     """A view to test our initial application version."""
-    # The third argument to `render` is called the "context."
-    # The context is modeled by a dictionary containing the replaceable
-    # parameters for data to be substituted into our template.
-    return render(request, 'movies/index.html', {'movie': 'Gladiator'})
+    # We can actually create a context locally for the rendered view
+    context = {
+        'movies': [
+            'gladiator',
+            'top gun',
+            'casino',
+        ]
+    }
+    return render(request, 'movies/index.html', context)
 
 
 def about(request):
