@@ -4,5 +4,8 @@
 <html lang="en">
     {% block content %}
         <h1>I like action movies.</h1>
+        {% load static %}
+        {# I do not understand the squiggles in PyCharm for my path. #}
+        <img style="width:100px; height:100px" src="{% static 'movies/mrwizard_2.jpeg' %}" alt="About mrwizard Picture">
     {% endblock content %}
 </html>
