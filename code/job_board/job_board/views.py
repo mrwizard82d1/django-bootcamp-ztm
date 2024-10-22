@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import JobPosting
 
@@ -18,7 +18,7 @@ def job_detail(request, pk):
     pk - The value (ie. "primary key") identifying the job whose details I display.
     """
 
-    job_posting = JobPosting.objects.get(pk=pk)
+    job_posting = get_object_or_404(JobPosting, pk=pk, is_active=True)
     context = {'posting': job_posting}
 
     print(context)
