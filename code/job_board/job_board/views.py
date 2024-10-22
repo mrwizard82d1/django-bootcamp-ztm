@@ -6,9 +6,7 @@ from .models import JobPosting
 def index(request):
     """Return the index page of this application."""
 
-    # Get all the jobs
-    # jobs = JobPosting.objects.all()
-    jobs = JobPosting.objects.filter(is_active=True)
-    print(jobs)
+    active_postings = JobPosting.objects.filter(is_active=True)
+    context = {'job_postings': active_postings}
 
-    return HttpResponse('<h1>Job Board</h1>')
+    return render(request, 'job_board/index.html', context)
