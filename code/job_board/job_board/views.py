@@ -21,5 +21,4 @@ def job_detail(request, pk):
     job_posting = get_object_or_404(JobPosting, pk=pk, is_active=True)
     context = {'posting': job_posting}
 
-    print(context)
     return render(request, 'job_board/detail.html', context)
