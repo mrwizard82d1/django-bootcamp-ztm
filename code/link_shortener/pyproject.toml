@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "link-shortener"
+version = "0.1.0"
+description = "A link shortener application from ZTM Django Bootcamp"
+authors = ["Larry Jones <mrwizard82d1@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+django = "^5.1.2"
+
+[tool.poetry.group.dev.dependencies]
+ipython = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
