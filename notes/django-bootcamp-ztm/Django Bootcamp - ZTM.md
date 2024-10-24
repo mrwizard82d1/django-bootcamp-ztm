@@ -7,7 +7,7 @@
 [[Section 5 - Django Models + Jobs Board Project]]
 [[Section 6 - Django Admin]]
 [[Section 7 - Django Forms + Bitly Clone Project]]
-[[Section 8 - Django Classe Based Views + Linktree Clone Project]]
+[[Section 8 - Django Class Based Views + Linktree Clone Project]]
 [[Section 9: User Authentication and Authorization + TripTrak Project]]
 [[Section 10 - REST Framework Fundamentals]]
 [[Where to Go From Here?]]
