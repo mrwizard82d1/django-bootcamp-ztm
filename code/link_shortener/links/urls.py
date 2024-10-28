@@ -19,5 +19,5 @@ from .views import index
 
 urlpatterns = [
     # Have no views yet, but we posit a view named `index` for now
-    path('', index),
+    path('', index, name='home'),
 ]
