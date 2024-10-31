@@ -33,3 +33,8 @@ def root_link(request, link_slug):
     # In this scenario, we **do not** want to render anything on
     # our site but instead navigate to a new site.
     return redirect(link.url)
+
+
+def add_link(request):
+    """Render a form that allows the user to add a link."""
+    return render(request, 'links/create.html',  {})
