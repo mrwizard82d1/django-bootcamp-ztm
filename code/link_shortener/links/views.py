@@ -37,4 +37,8 @@ def root_link(request, link_slug):
 
 def add_link(request):
     """Render a form that allows the user to add a link."""
+
+    # Get the data from the request to add the link
+    print(request.POST)
+
     return render(request, 'links/create.html',  {})
