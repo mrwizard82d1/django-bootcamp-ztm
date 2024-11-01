@@ -8,6 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.13"
 django = "^5.1.2"
+django-crispy-forms = "^2.3"
+crispy-tailwind = "^1.0.3"
 
 [tool.poetry.group.dev.dependencies]
 ipython = "*"
