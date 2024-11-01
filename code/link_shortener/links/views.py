@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Link
+from .forms import LinkForm
 
 # Create your views here.
 
@@ -37,8 +38,18 @@ def root_link(request, link_slug):
 
 def add_link(request):
     """Render a form that allows the user to add a link."""
+    if request.method == 'POST':
+        # A 'POST' request **must have** data
+        form = LinkForm(request.POST)
+        if form.is_valid():
+            # Process the (valid) data
+            print(form.cleaned_data)
+        else:
+            print(form.errors)
+    else:
+        # A 'GET' request
+        form = LinkForm()
 
-    # Get the data from the request to add the link
-    print(request.POST)
-
-    return render(request, 'links/create.html',  {})
+    # The name of the form in `context` is the name used in `create.html`
+    context = {'form': form}
+    return render(request, 'links/create.html',  context)
