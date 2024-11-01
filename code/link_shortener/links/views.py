@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 
 from .models import Link
 from .forms import LinkForm
@@ -42,8 +43,9 @@ def add_link(request):
         # A 'POST' request **must have** data
         form = LinkForm(request.POST)
         if form.is_valid():
-            # Process the (valid) data
-            print(form.cleaned_data)
+            # Save the data and return the use to the home page
+            form.save()
+            return redirect(reverse('home'))
         else:
             print(form.errors)
     else:

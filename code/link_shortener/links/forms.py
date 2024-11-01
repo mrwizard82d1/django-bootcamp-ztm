@@ -2,12 +2,14 @@
 
 from django import forms
 
+from links.models import Link
 
-class LinkForm(forms.Form):
-    """Defines a form for creating a new link for our application."""
 
-    # Like with a `Model`, we define input form elements by adding class members.
-    name = forms.CharField(max_length=50)
-    url = forms.URLField(max_length=200)
-    slug = forms.SlugField(required=False)
+class LinkForm(forms.ModelForm):
+    """Defines a form - associated with a model - for creating a new link for our application."""
 
+    # The base class will automatically create our form fields base on our model
+    # However, we must define some `Meta` properties
+    class Meta:
+        model = Link
+        fields = ('name', 'url', 'slug')
