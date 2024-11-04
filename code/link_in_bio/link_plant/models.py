@@ -40,3 +40,7 @@ class Link(models.Model):
     # identifies a related `Profile`; that is, supports reverse links
     profile = models.ForeignKey(Profile,
                                 on_delete=models.CASCADE, related_name='links')
+
+    def __str__(self):
+        """Return string representation (for links) of the model."""
+        return f'{self.text} | {self.url}'
