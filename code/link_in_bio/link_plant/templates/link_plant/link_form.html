@@ -1,0 +1,14 @@
+{% extends 'link_plant/_base.html' %}
+
+{% block content %}
+	<h1 class="text-4x0">Link Form</h1>
+    <hr class="my-4" />
+    <form action="" method="POST">
+        {% csrf_token %}
+        {# Render the passed in form **data** #}
+        {{ form }}
+        <input type="submit"
+               class="px-6 py-3 bg-blue-200 hover:cursor-pointer hover:bg-blue-300 rounded"
+               value="Save Link" />
+    </form>
+{% endblock %}
