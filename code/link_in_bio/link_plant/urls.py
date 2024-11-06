@@ -16,11 +16,14 @@ Including another URLconf
 """
 from django.urls import path
 
-from .views import LinkListView, LinkCreateView, LinkUpdateView
+from .views import LinkListView, LinkCreateView, LinkUpdateView, LinkDeleteView
 
 urlpatterns = [
     # Must call `as_view()` to return a view and not just a class.
     path("", LinkListView.as_view(), name="link-list"),
     path("link/create", LinkCreateView.as_view(), name="link-create"),
     path("link/<int:pk>/update", LinkUpdateView.as_view(), name="link-update"),
+
+    # Remember `LinkDeleteView` **confirms** a specified deletion
+    path("link/<int:pk>/delete", LinkDeleteView.as_view(), name="link-delete"),
 ]

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from .models import Profile, Link
 
@@ -37,3 +37,20 @@ class LinkUpdateView(UpdateView):
     fields = ['text', 'url']
     success_url = reverse_lazy('link-list')
     # This class uses the **same** template as the `LinkCreateView`
+
+
+class LinkDeleteView(DeleteView):
+    """Delete an existing link."""
+    # If using a function view
+    # - Take in an id (primary key) of an object (to delete)
+    # - Query the database for that object
+    # - If it exists, delete the object
+    # - Either return some template or forward the user to some URL
+    model = Link
+
+    # If successful, return to the `link-list` URL
+    success_url = reverse_lazy('link-list')
+
+    # By default, this implementation will provide
+    # - A form to submit in order to delete the item
+    # -
