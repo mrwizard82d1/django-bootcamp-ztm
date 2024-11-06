@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView
 
 from .models import Profile, Link
 
@@ -24,3 +24,16 @@ class LinkCreateView(CreateView):
     success_url = reverse_lazy('link-list')
     # By default
     # - Creates a template model_form; i.e., `link_form.html`
+
+
+class LinkUpdateView(UpdateView):
+    """Update a existing link."""
+    # With a function view
+    # Create a form
+    # Check if get or put request
+    # Either render form or update and save
+    # `UpdateView` encapsulates this pattern
+    model = Link
+    fields = ['text', 'url']
+    success_url = reverse_lazy('link-list')
+    # This class uses the **same** template as the `LinkCreateView`
