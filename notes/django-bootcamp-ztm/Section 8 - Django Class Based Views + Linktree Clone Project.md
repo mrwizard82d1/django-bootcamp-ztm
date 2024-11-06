@@ -7,5 +7,6 @@
 [[Creating New Links with the CreateView Class]]
 [[Installing Crispy Forms and Tailwind Styling]]
 [[Updating the Links with the UpdateView Class]]
+[[Creating the Delete View to Remove a Link]]
 [[Building the Final Profile Page Showcasing Links]]
 [[Project Demo Day]]
