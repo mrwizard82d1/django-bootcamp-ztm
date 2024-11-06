@@ -11,3 +11,5 @@
 [[Section 9: User Authentication and Authorization + TripTrak Project]]
 [[Section 10 - REST Framework Fundamentals]]
 [[Where to Go From Here?]]
+
+[[Course Resources]]
