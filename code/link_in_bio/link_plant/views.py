@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
@@ -53,4 +53,18 @@ class LinkDeleteView(DeleteView):
 
     # By default, this implementation will provide
     # - A form to submit in order to delete the item
-    # -
+
+
+# Demonstrate combining class-based views with function-based views
+def profile_view(request, profile_slug):
+    """Render the `Profile` view."""
+
+    # Grab the profile for the current user (identified by `profile_slug`)
+    profile = get_object_or_404(Profile, slug=profile_slug)
+    # `profile.links.all() because of `ForeignKey` in model
+    links = profile.links.all()
+    context = {
+        'profile': profile,
+        'links': links,
+    }
+    return render(request, 'link_plant/profile.html', context)
