@@ -125,3 +125,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# The following URL configuration allows our application to specify images
+# like "www.my-site.com/media/img-1"
+MEDIA_URL = '/media/'
+
+# Tho following configuration allows our application to find the actual
+# on-disk file of images (and, nominally, other media). For example,
+# "<BASE_DIR>/media/file-xyz.png" identifies an image stored as a
+# ".png" file.
+MEDIA_ROOT = BASE_DIR / 'media/'
