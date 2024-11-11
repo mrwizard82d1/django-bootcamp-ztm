@@ -14,6 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+print(f'BASE_DIR = {BASE_DIR}')
 
 
 # Quick-start development settings - unsuitable for production
@@ -57,8 +58,7 @@ ROOT_URLCONF = 'triptrak.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,3 +135,8 @@ MEDIA_URL = '/media/'
 # "<BASE_DIR>/media/file-xyz.png" identifies an image stored as a
 # ".png" file.
 MEDIA_ROOT = BASE_DIR / 'media/'
+
+# Where should the user navigate after login (if no `next`?
+# If we **do not** take this step, the user will return to
+# the "Please login page" after logging in (a bit confusing).
+LOGIN_REDIRECT_URL = 'trip-list'
