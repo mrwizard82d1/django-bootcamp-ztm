@@ -140,3 +140,4 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 # If we **do not** take this step, the user will return to
 # the "Please login page" after logging in (a bit confusing).
 LOGIN_REDIRECT_URL = 'trip-list'
+LOGOUT_REDIRECT_URL = 'trip-list'

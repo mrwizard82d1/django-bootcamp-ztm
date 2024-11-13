@@ -13,3 +13,8 @@
 [[Where to Go From Here?]]
 
 [[Course Resources]]
+
+Django >~ 5 no longer supports the `GET` method to logout. Consequently, the code in the course video **does not work** (for logout). 
+
+Instead, one must use a `POST` method (and a form). [This tutorial](https://learndjango.com/tutorials/django-login-and-logout-tutorial) describes very simply how to implement several aspects of authentication and password management including logging out.
+

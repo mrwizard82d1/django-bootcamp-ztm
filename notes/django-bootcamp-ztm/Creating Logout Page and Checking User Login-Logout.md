@@ -23,3 +23,5 @@ Method Not Allowed: /accounts/logout/
 ```
 
 - I believe this error occurs because of a change in Django logout processing in Django ~5.
+
+[This tutorial](https://learndjango.com/tutorials/django-login-and-logout-tutorial) describes very simply the approach one needs to use to correctly log out in Django >~ 5. As a follow-up step, consider following allowing with [this tutorial](https://learndjango.com/tutorials/django-login-and-logout-tutorial) to better understand the current login, logout, and password management process.
