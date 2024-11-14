@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('trip.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/signup', SignupView.as_view(), name='signup'),
+    path('accounts/signup/', SignupView.as_view(), name='signup'),
 ]
 
 # Django authentication/authorization URLs

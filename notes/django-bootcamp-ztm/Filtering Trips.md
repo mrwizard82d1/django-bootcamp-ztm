@@ -28,3 +28,32 @@ Navigate back to 'dashboard'
 - On refresh of page, displayed trips only belong to the admin account
 - Logout and log in as 'test-user'
 	- Now displayed trips only belong to the 'test-user' account
+
+I appear to have discovered **another** change moving to Django 5.x
+- The video simply changes the expression
+	- `Trip.object.all()` in the function `trips_list()` in the file 'trip/views.py'
+	- To `Trip.object.filter(owner=request.user)`
+- This change, unfortunately, breaks the application with the error:
+
+```
+TypeError at /dashboard/
+Field 'id' expected a number but got <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x10717bc50>>.
+```
+
+  - To repair this error, I used the information from the "AI Overview" in response to the search request: "django error getting objects after logout"
+	  - Specifically, I used this section
+
+```
+Handle Anonymous Users:
+If you need to access objects that are not user-specific, ensure that your logic handles cases where the user is not authenticated:
+Python
+
+
+     def my_view(request):
+         if request.user.is_authenticated:
+             # Access user-specific data
+         else:
+             # Handle anonymous users
+```
+
+- This change repairs the error
