@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+import crispy_forms
+import crispy_tailwind
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 print(f'BASE_DIR = {BASE_DIR}')
@@ -38,6 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 3rd party
+    'crispy_forms',
+    'crispy_tailwind',
 
     # Local apps
     'trip',
@@ -140,3 +147,6 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 # If we **do not** take this step, the user will return to
 # the "Please login page" after logging in (a bit confusing).
 LOGIN_REDIRECT_URL = 'trip-list'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
