@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, CreateView, DetailView, ListView
+from django.views.generic import TemplateView, CreateView, DetailView, ListView, UpdateView, DeleteView
 
 # Trip for now; Note for later.
 from .models import Trip, Note
@@ -103,3 +103,34 @@ class NoteCreateView(CreateView):
         form.fields['trip'].queryset = trips
         return form
 
+
+class NoteUpdateView(UpdateView):
+    """Create a note for a trip."""
+    model = Note
+    success_url = reverse_lazy('note-list')
+    fields = '__all__'
+
+    # We only include references to trips for the currently logged in user.
+    def get_form(self, **kwargs):
+        """Construct the form the current user must fill out **including**
+        all the trips of the current user."""
+
+        # Begin by getting the form itself
+        form = super(NoteUpdateView, self).get_form(**kwargs)
+
+        # Get all the trips for the currently logged in user
+        trips = Trip.objects.filter(owner=self.request.user)
+
+        # Add **only** the trips for the current user to the form
+        print(f"{form.fields['trip'].queryset=}")
+        form.fields['trip'].queryset = trips
+        return form
+
+
+class NoteDeleteView(DeleteView):
+    """View to delete notes."""
+    model = Note
+    success_url = reverse_lazy('note-list')
+
+    # **BEWARE** No template is needed.
+    # When we send a POST request to this URL, the note will be deleted.
