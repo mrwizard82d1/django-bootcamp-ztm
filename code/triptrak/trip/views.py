@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, DetailView
 
 # Trip for now; Note for later.
 from .models import Trip, Note
@@ -40,7 +40,7 @@ class TripCreateView(CreateView):
     # We must create one other piece
     def form_valid(self, form):
         """Validate the form with the previously specified 'fields' but
-        **also** we must supply the currently logged in user as the owner."""
+        **also** we must supply the currently logged-in user as the owner."""
 
         form.instance.owner = self.request.user
 
@@ -48,3 +48,19 @@ class TripCreateView(CreateView):
         return super().form_valid(form)
 
 
+class TripDetailView(DetailView):
+    """View the details of a selected trip."""
+    model = Trip
+
+    # Currently, we would just get the data stored in the Trip, but we
+    # want more information. To repair this issue, we want to update our
+    # context variable to include the notes for this trip.
+    def get_context_data(self, **kwargs):
+        """Get context data for the trip and **also** for its associated notes."""
+        context = super().get_context_data(**kwargs)
+        trip = context['object']
+        # Collect **all** notes associated with this trip
+        notes = trip.notes.all()
+        context['notes'] = notes
+        context['notes_count'] = len(notes)
+        return context  ## with trip notes
