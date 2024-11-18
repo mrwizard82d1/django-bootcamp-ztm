@@ -5,7 +5,6 @@
     <div class="bg-gray-50 p-8 rounded shadow my-4">
         <p class="text-2xl">{{ trip.country }} | {{ trip.city }}</p>
         <hr class="my-4">
-        <div>Notes count <{{ trip.notes_count }}></div>
         <div class="flex gap-2 flex-wrap">
             {% for note in notes %}
                 <a href="{% url 'note-detail' note.pk %}">

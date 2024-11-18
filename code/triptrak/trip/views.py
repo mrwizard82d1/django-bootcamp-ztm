@@ -64,3 +64,8 @@ class TripDetailView(DetailView):
         context['notes'] = notes
         context['notes_count'] = len(notes)
         return context  ## with trip notes
+
+
+class NoteDetailView(DetailView):
+    """View the details of a selected note."""
+    model = Note
