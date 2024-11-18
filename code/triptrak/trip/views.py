@@ -79,3 +79,27 @@ class NoteListView(ListView):
         """Override parent method to get only Notes for currently logged-in user."""
         queryset = Note.objects.filter(trip__owner=self.request.user)
         return queryset
+
+
+class NoteCreateView(CreateView):
+    """Create a note for a trip."""
+    model = Note
+    success_url = reverse_lazy('note-list')
+    fields = '__all__'
+
+    # We only include references to trips for the currently logged in user.
+    def get_form(self, **kwargs):
+        """Construct the form the current user must fill out **including**
+        all the trips of the current user."""
+
+        # Begin by getting the form itself
+        form = super(NoteCreateView, self).get_form(**kwargs)
+
+        # Get all the trips for the currently logged in user
+        trips = Trip.objects.filter(owner=self.request.user)
+
+        # Add **only** the trips for the current user to the form
+        print(f"{form.fields['trip'].queryset=}")
+        form.fields['trip'].queryset = trips
+        return form
+

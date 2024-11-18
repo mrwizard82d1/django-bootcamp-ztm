@@ -16,11 +16,17 @@ Including another URLconf
 """
 from django.urls import path
 
-from .views import HomeView, trips_list, TripCreateView, TripDetailView, NoteDetailView, NoteListView
+from .views import HomeView, trips_list, TripCreateView, TripDetailView, NoteDetailView, NoteListView, NoteCreateView
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('dashboard/', trips_list, name='trip-list'),
+
+    # To my initial surprise, moving this line after the path,
+    # 'dashboard/note', results in an exception because the path
+    # resolution logic **always** finds `dashboard/note' **first**.
+    # I missed this issue initially, but it makes sense in retrospect.
+    path('dashboard/note/create', NoteCreateView.as_view(), name='note-create'),
     path('dashboard/note', NoteListView.as_view(), name='note-list'),
     path('dashboard/trip/create', TripCreateView.as_view(), name='trip-create'),
     path('dashboard/trip/<int:pk>/', TripDetailView.as_view(), name='trip-detail'),
