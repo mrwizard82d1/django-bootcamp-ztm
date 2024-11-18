@@ -105,7 +105,7 @@ class NoteCreateView(CreateView):
 
 
 class NoteUpdateView(UpdateView):
-    """Create a note for a trip."""
+    """Update a note for a trip."""
     model = Note
     success_url = reverse_lazy('note-list')
     fields = '__all__'
@@ -131,6 +131,27 @@ class NoteDeleteView(DeleteView):
     """View to delete notes."""
     model = Note
     success_url = reverse_lazy('note-list')
+
+    # **BEWARE** No template is needed.
+    # When we send a POST request to this URL, the note will be deleted.
+
+
+class TripUpdateView(UpdateView):
+    """Update a trip."""
+    model = Trip
+    success_url = reverse_lazy('trip-list')
+    # **Do not** include `owner` because we just want to refer to the owner
+    # We **do not** want to allow someone to specify a **different**
+    # owner for a trip.
+    fields = ['city', 'country', 'start_date', 'end_date']
+
+    # This view uses a model of the form `<model>_form`; that is, `trip_form`.
+
+
+class TripDeleteView(DeleteView):
+    """View to delete a trip."""
+    model = Trip
+    success_url = reverse_lazy('trip-list')
 
     # **BEWARE** No template is needed.
     # When we send a POST request to this URL, the note will be deleted.
