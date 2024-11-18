@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, CreateView, DetailView
+from django.views.generic import TemplateView, CreateView, DetailView, ListView
 
 # Trip for now; Note for later.
 from .models import Trip, Note
@@ -69,3 +69,13 @@ class TripDetailView(DetailView):
 class NoteDetailView(DetailView):
     """View the details of a selected note."""
     model = Note
+
+
+class NoteListView(ListView):
+    """View all trip notes."""
+    model = Note
+
+    def get_queryset(self):
+        """Override parent method to get only Notes for currently logged-in user."""
+        queryset = Note.objects.filter(trip__owner=self.request.user)
+        return queryset
